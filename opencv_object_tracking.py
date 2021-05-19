@@ -1,5 +1,8 @@
+# Cách dùng
+# python opencv_object_tracking.py --tracker CSRT
+# python opencv_object_tracking.py --video videos/traffic.mp4 --tracker CSRT
+
 import cv2
-import sys
 import argparse
 import imutils
 import time
