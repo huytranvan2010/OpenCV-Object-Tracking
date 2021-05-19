@@ -77,42 +77,45 @@ while True:
         # update the FPS counter
         fps.update()
         fps.stop()
-        # initialize the set of information we'll be displaying on the frame
+        
+        # định nghĩa một số thông tin để vẽ lên frame
         info = [
             ("Tracker", tracker_type),
             ("Success", "Yes" if success else "No"),
             ("FPS", "{:.2f}".format(fps.fps())),
         ]
-        # loop over the info tuples and draw them on our frame
+        # Duyệt qua info để ghi một số thông tin lên frame
         for (i, (k, v)) in enumerate(info):
             text = "{}: {}".format(k, v)
             cv2.putText(frame, text, (10, H - ((i * 20) + 20)), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
 
-    # show the output frame
+    # hiển thị frame
     cv2.imshow("Frame", frame)
     key = cv2.waitKey(1) & 0xFF
-    # if the 's' key is selected, we are going to "select" a bounding box to track
+    
+    # Nhấn "s" để chọn bounding box theo dõi
     if key == ord("s"):
-        # select the bounding box of the object we want to track (make
-        # sure you press ENTER or SPACE after selecting the ROI)
+        # Chọn bounding box muốn theo dõi (kéo bằng chuột), nhớ nhấn ENTER hoặc SPACE để hoàn thành
         initBB = cv2.selectROI("Frame", frame, fromCenter=False, showCrosshair=True)
         
-        # start OpenCV object tracker using the supplied bounding box
-        # coordinates, then start the FPS throughput estimator as well
+        # bắt đầu tracking bằng cách cung cấp tọa độ bounding box
+        # then start the FPS throughput estimator as well
         """ Đây chính là khởi tạo tracker cho bounding boxes đó """
         tracker.init(frame, initBB)
         fps = FPS().start()
 
-    # if the `q` key was pressed, break from the loop
+    # Nhấn nhấn "q" sẽ thoát ra
     elif key == ord("q"):
         break
-# if we are using a webcam, release the pointer
+
+# Nếu sử dụng webcam thì dừng lại
 if not args.get("video", False):
     video.stop()
-# otherwise, release the file pointer
+# nếu dùng video thì release nó
 else:
     video.release()
-# close all windows
+
+# Đóng tất cả các cửa sổ
 cv2.destroyAllWindows()
 
         
