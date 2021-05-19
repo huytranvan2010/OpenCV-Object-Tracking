@@ -1,5 +1,5 @@
 # OpenCV-Object-Tracking
-**Chú ý: ** nên cài opencv bằng lệnh `pip install opencv-contrib-python`
+**Chú ý:** nên cài opencv bằng lệnh `pip install opencv-contrib-python`
 
 Trong bài trước chúng ta đã tìm hiểu về `centroid tracking algorithm`. Nó hoạt động khá tốt, tuy nhiên nó cần chạy `object detection` cho mỗi khung hình. Điều này sẽ làm tăng khối lượng tính toán hơn.
 
