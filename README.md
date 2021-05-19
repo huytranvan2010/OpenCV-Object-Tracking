@@ -6,7 +6,7 @@ Trong bài trước chúng ta đã tìm hiểu về `centroid tracking algorithm
 Chúng ta mong muốn chỉ thực hiện object detection một lần, sau đó sẽ thực hiện tracking. Phương pháp này sẽ hiệu quả và nhanh hơn. 
 
 OpenCv cung cấp cho chúng ta 8 object tracking algorithms:
-* **BOOOSTING tracker**: sử dụng các thuật toán ML tương tự như Haar cascades. Tracker này chậm và không hoạt động tốt
+* **BOOOSTING tracker**: sử dụng các thuật toán AdaBoost (tương tự như Haar cascades sử dụng cho face detector). Tracker này chậm và không hoạt động tốt
 * **MIL tracker**: độ chính xác cao hơn BOOSTIG nhưng nói chung vẫn kém
 * **KCF tracker**: Kernelized Correlation Filters. Nhanh hơn BOOSTING và MILL. KCF và MIL đều không xử lý hoàn toàn được occlusion (hiện tượng các vật thể quá gần nhau dường như nối thành một, điều này gây khó khăn cho việc tracking)
 * **CSRT tracker:** Discrimitive Correlation Filter (with Channel and Spatial Reliability). CSRT chính xác hơn KCF nhưng chậm hơn một chút
@@ -19,4 +19,9 @@ OpenCv cung cấp cho chúng ta 8 object tracking algorithms:
 - Sử dụng CSRT khi cần độ chính xác cao hơn và chịu giảm FPS một chút
 - Dùng KCF nếu cần FPS cao nhưng độ chính xác có thể thấp hơn
 - Dùng MOSSE khi cần tốc độ
+
+# Tài liệu tham khảo
+https://www.pyimagesearch.com/2018/07/30/opencv-object-tracking/
+
+https://learnopencv.com/object-tracking-using-opencv-cpp-python/ 
 

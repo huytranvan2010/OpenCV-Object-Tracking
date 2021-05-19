@@ -66,6 +66,7 @@ while True:
     # kiểm tra nếu chúng ta đang theo dõi vật thể, ban đầu khởi tạo ininBB
     if initBB is not None:
         # lấy new bounding box của vật thể đó - update tracker
+        # chú ý xem bên dưới mình mới khởi tạo tracker
         (success, box) = tracker.update(frame)
 
         # nếu sự theo dõi thành công thì vẽ rectangle
@@ -95,8 +96,10 @@ while True:
         # select the bounding box of the object we want to track (make
         # sure you press ENTER or SPACE after selecting the ROI)
         initBB = cv2.selectROI("Frame", frame, fromCenter=False, showCrosshair=True)
+        
         # start OpenCV object tracker using the supplied bounding box
         # coordinates, then start the FPS throughput estimator as well
+        """ Đây chính là khởi tạo tracker cho bounding boxes đó """
         tracker.init(frame, initBB)
         fps = FPS().start()
 
